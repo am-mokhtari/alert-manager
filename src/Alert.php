@@ -1,6 +1,6 @@
 <?php
 
-namespace Amm\AlertManager;
+namespace AmMokhtari\AlertManager;
 
 session_start();
 
