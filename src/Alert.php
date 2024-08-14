@@ -1,0 +1,132 @@
+<?php
+
+namespace Amm\AlertManager;
+
+session_start();
+
+class Alert
+{
+    /**
+     * @param string $message
+     * @return bool
+     */
+    public static function addNormalMessage(string $message): bool
+    {
+        return self::add('info', $message);
+    }
+
+    /**
+     * @param string $message
+     * @return bool
+     */
+    public static function addDangerMessage(string $message): bool
+    {
+        return self::add('danger', $message);
+    }
+
+    /**
+     * @param string $message
+     * @return bool
+     */
+    public static function addWarningMessage(string $message): bool
+    {
+        return self::add('warning', $message);
+    }
+
+    /**
+     * @param string $message
+     * @return bool
+     */
+    public static function addSuccessMessage(string $message): bool
+    {
+        return self::add('success', $message);
+    }
+
+    /**
+     * @param string $type
+     * @param string $message
+     * @return bool
+     */
+    private static function add(string $type, string $message): bool
+    {
+        /* check the message exist */
+        if (!self::checkMessageExist($type, $message)) {
+            return false;
+        }
+
+        /* set session */
+        $_SESSION["alert-$type"][] = $message;
+        return true;
+    }
+
+    /**
+     * @param string $type
+     * @param string $message
+     * @return bool
+     */
+    private static function checkMessageExist(string $type, string $message): bool
+    {
+        if (isset($_SESSION["alert-$type"]) && in_array($message, $_SESSION["alert-$type"])) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * @return array
+     */
+    public static function all(): array
+    {
+        $all = [];
+        if (isset($_SESSION["alert-info"])) $all = array_merge($all, $_SESSION["alert-info"]);
+        if (isset($_SESSION["alert-danger"])) $all = array_merge($all, $_SESSION["alert-danger"]);
+        if (isset($_SESSION["alert-warning"])) $all = array_merge($all, $_SESSION["alert-warning"]);
+        if (isset($_SESSION["alert-success"])) $all = array_merge($all, $_SESSION["alert-success"]);
+        return $all;
+    }
+
+    /**
+     * @param string $type
+     * @return array
+     */
+    public static function get(string $type): array
+    {
+        $all = [];
+        if (isset($_SESSION["alert-$type"])) $all = array_merge($all, $_SESSION["alert-$type"]);
+
+        return $all;
+    }
+
+    /**
+     * @param string $type
+     * @return array
+     */
+    public static function drop(string $type): array
+    {
+        $all = self::get($type);
+        unset($_SESSION["alert-$type"]);
+
+        return $all;
+    }
+
+    /**
+     * @return array
+     */
+    public static function dropAll(): array
+    {
+        $all = self::all();
+        unset($_SESSION["alert-info"], $_SESSION["alert-danger"], $_SESSION["alert-warning"], $_SESSION["alert-success"]);
+
+        return $all;
+    }
+
+}
+
+//---Test------------------------------------
+//Alert::addDangerMessage('dangered');
+//Alert::addSuccessMessage('success');
+
+//var_dump(Alert::get('dangered'));
+//var_dump(Alert::drop('success'));
+//var_dump(Alert::all());
+//var_dump(Alert::dropAll());
