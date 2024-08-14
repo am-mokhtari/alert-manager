@@ -1,5 +1,5 @@
 {
-    "name": "amm/alert-manager",
+    "name": "am-mokhtari/alert-manager",
     "description": "helper for set and show alerts",
     "type": "library",
     "require": {
