@@ -102,12 +102,12 @@ class Alert implements AlertManagerInterface
      * @param string $type
      * @return array
      */
-    public static function drop(string $type): array
+    public static function pullByType(string $type): array
     {
-        $all = self::getByType($type);
+        $allInType = self::getByType($type);
         unset($_SESSION["alert-$type"]);
 
-        return $all;
+        return $allInType;
     }
 
     /**
