@@ -148,6 +148,14 @@ class Alert implements AlertManagerInterface
         return false;
     }
 
+    /**
+     * @return bool
+     */
+    static function forgetAll(): bool
+    {
+        unset($_SESSION["alert-info"], $_SESSION["alert-danger"], $_SESSION["alert-warning"], $_SESSION["alert-success"]);
+        return true;
+    }
 }
 
 //---Test------------------------------------
