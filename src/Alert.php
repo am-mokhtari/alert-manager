@@ -107,7 +107,7 @@ class Alert implements AlertManagerInterface
     public static function pullByType(string $type): array
     {
         $allInType = self::getByType($type);
-        unset($_SESSION["alert-$type"]);
+        self::forgetType($type);
 
         return $allInType;
     }
@@ -118,7 +118,7 @@ class Alert implements AlertManagerInterface
     public static function pullAll(): array
     {
         $all = self::all();
-        unset($_SESSION["alert-info"], $_SESSION["alert-danger"], $_SESSION["alert-warning"], $_SESSION["alert-success"]);
+        self::forgetAll();
 
         return $all;
     }
