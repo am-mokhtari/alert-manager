@@ -2,6 +2,8 @@
 
 namespace AmMokhtari\AlertManager;
 
+require_once '../vendor/autoload.php';
+
 session_start();
 
 class Alert implements AlertManagerInterface
@@ -161,8 +163,13 @@ class Alert implements AlertManagerInterface
 //---Test------------------------------------
 //Alert::addDangerMessage('dangered');
 //Alert::addSuccessMessage('success');
-
-//var_dump(Alert::get('dangered'));
-//var_dump(Alert::drop('success'));
+//
+//var_dump(Alert::getByType('danger'));
+//echo '<br>';
 //var_dump(Alert::all());
-//var_dump(Alert::dropAll());
+//echo '<br>';
+//var_dump(Alert::pullByType('success'));
+//echo '<br>';
+//var_dump(Alert::pullAll());
+//echo '<br>';
+//var_dump(Alert::all());
