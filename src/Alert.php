@@ -121,6 +121,20 @@ class Alert implements AlertManagerInterface
         return $all;
     }
 
+    /**
+     * @param string $type
+     * @param int $key
+     * @return bool
+     */
+    static function forgetOne(string $type, int $key): bool
+    {
+        if (isset($_SESSION["alert-$type"][$key])) {
+            unset($_SESSION["alert-$type"][$key]);
+            return true;
+        }
+        return false;
+    }
+
 }
 
 //---Test------------------------------------
