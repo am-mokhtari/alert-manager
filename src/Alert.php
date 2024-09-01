@@ -10,65 +10,83 @@ class Alert implements AlertManagerInterface
 {
     /**
      * @param string $message
+     * @param $isFlash
      * @return bool
      */
-    public static function addNormalMessage(string $message): bool
+    public static function addNormalMessage(string $message, $isFlash): bool
     {
-        return self::add('info', $message);
+        return self::add('info', $message, $isFlash);
     }
 
     /**
      * @param string $message
+     * @param $isFlash
      * @return bool
      */
-    public static function addDangerMessage(string $message): bool
+    public static function addDangerMessage(string $message, $isFlash): bool
     {
-        return self::add('danger', $message);
+        return self::add('danger', $message, $isFlash);
     }
 
     /**
      * @param string $message
+     * @param $isFlash
      * @return bool
      */
-    public static function addWarningMessage(string $message): bool
+    public static function addWarningMessage(string $message, $isFlash): bool
     {
-        return self::add('warning', $message);
+        return self::add('warning', $message, $isFlash);
     }
 
     /**
      * @param string $message
+     * @param $isFlash
      * @return bool
      */
-    public static function addSuccessMessage(string $message): bool
+    public static function addSuccessMessage(string $message, $isFlash): bool
     {
-        return self::add('success', $message);
+        return self::add('success', $message, $isFlash);
     }
 
     /**
      * @param string $type
      * @param string $message
+     * @param $isFlash
      * @return bool
      */
-    private static function add(string $type, string $message): bool
+    private static function add(string $type, string $message, $isFlash): bool
     {
         /* check the message exist */
-        if (!self::checkMessageExist($type, $message)) {
+        if (!self::checkMessageExist($type, $message, $isFlash)) {
             return false;
         }
 
         /* set session */
-        $_SESSION["alerts"][$type][] = $message;
+        if ($isFlash)
+            $session = $_SESSION["flashes"];
+        else
+            $session = $_SESSION["alerts"];
+        $session[$type][] = $message;
+
         return true;
     }
 
     /**
      * @param string $type
      * @param string $message
+     * @param bool $flashes
      * @return bool
      */
-    private static function checkMessageExist(string $type, string $message): bool
+    private static function checkMessageExist(string $type, string $message, ?bool $flashes): bool
     {
-        if (isset($_SESSION["alert-$type"]) && in_array($message, $_SESSION["alert-$type"])) {
+        if (
+            $flashes && isset($_SESSION["flashes"][$type]) && in_array($message, $_SESSION["flashes"][$type])
+        ) {
+            return false;
+
+        } elseif (
+            isset($_SESSION["alerts"][$type]) && in_array($message, $_SESSION["alerts"][$type])
+        ) {
             return false;
         }
         return true;
