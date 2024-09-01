@@ -80,10 +80,8 @@ class Alert implements AlertManagerInterface
     public static function all(): array
     {
         $all = [];
-        if (isset($_SESSION["alert-info"])) $all = array_merge($all, $_SESSION["alert-info"]);
-        if (isset($_SESSION["alert-danger"])) $all = array_merge($all, $_SESSION["alert-danger"]);
-        if (isset($_SESSION["alert-warning"])) $all = array_merge($all, $_SESSION["alert-warning"]);
-        if (isset($_SESSION["alert-success"])) $all = array_merge($all, $_SESSION["alert-success"]);
+        if (isset($_SESSION["alerts"]))
+            $all = $_SESSION["alerts"];
         return $all;
     }
 
@@ -94,8 +92,8 @@ class Alert implements AlertManagerInterface
     public static function getByType(string $type): array
     {
         $allInType = [];
-        if (isset($_SESSION["alert-$type"]))
-            $allInType = array_merge($allInType, $_SESSION["alert-$type"]);
+        if (isset($_SESSION["alerts"][$type]))
+            $allInType = $_SESSION["alerts"][$type];
 
         return $allInType;
     }
