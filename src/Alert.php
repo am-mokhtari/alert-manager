@@ -130,11 +130,8 @@ class Alert implements AlertManagerInterface
      */
     static function forgetOne(string $type, int $key): bool
     {
-        if (isset($_SESSION["alert-$type"][$key])) {
-            unset($_SESSION["alert-$type"][$key]);
-            return true;
-        }
-        return false;
+        unset($_SESSION["alert-$type"][$key]);
+        return true;
     }
 
     /**
@@ -143,11 +140,8 @@ class Alert implements AlertManagerInterface
      */
     static function forgetType(string $type): bool
     {
-        if (isset($_SESSION["alert-$type"])) {
-            unset($_SESSION["alert-$type"]);
-            return true;
-        }
-        return false;
+        unset($_SESSION["alert-$type"]);
+        return true;
     }
 
     /**
