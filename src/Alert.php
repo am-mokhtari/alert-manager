@@ -4,7 +4,7 @@ namespace AmMokhtari\AlertManager;
 
 session_start();
 
-class Alert
+class Alert implements AlertManagerInterface
 {
     /**
      * @param string $message
