@@ -57,7 +57,7 @@ class Alert implements AlertManagerInterface
         }
 
         /* set session */
-        $_SESSION["alert-$type"][] = $message;
+        $_SESSION["alerts"][$type][] = $message;
         return true;
     }
 
