@@ -3,7 +3,7 @@
     "description": "helper for set and show alerts on website by using sessions",
     "type": "library",
     "require": {
-        "php": "^8.1"
+        "php": "^8.2"
     },
     "license": "MIT",
     "autoload": {
