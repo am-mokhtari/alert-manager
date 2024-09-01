@@ -89,12 +89,13 @@ class Alert implements AlertManagerInterface
      * @param string $type
      * @return array
      */
-    public static function get(string $type): array
+    public static function getByType(string $type): array
     {
-        $all = [];
-        if (isset($_SESSION["alert-$type"])) $all = array_merge($all, $_SESSION["alert-$type"]);
+        $allInType = [];
+        if (isset($_SESSION["alert-$type"]))
+            $allInType = array_merge($allInType, $_SESSION["alert-$type"]);
 
-        return $all;
+        return $allInType;
     }
 
     /**
@@ -103,7 +104,7 @@ class Alert implements AlertManagerInterface
      */
     public static function drop(string $type): array
     {
-        $all = self::get($type);
+        $all = self::getByType($type);
         unset($_SESSION["alert-$type"]);
 
         return $all;
