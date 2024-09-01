@@ -113,7 +113,7 @@ class Alert implements AlertManagerInterface
     /**
      * @return array
      */
-    public static function dropAll(): array
+    public static function pullAll(): array
     {
         $all = self::all();
         unset($_SESSION["alert-info"], $_SESSION["alert-danger"], $_SESSION["alert-warning"], $_SESSION["alert-success"]);
