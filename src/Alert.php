@@ -105,4 +105,24 @@ class Alert extends AlertManager
     {
         return self::pullFlashesByType('success');
     }
+
+    public static function forgetOneNormal(int $key): bool
+    {
+        return self::forgetOne('info', $key);
+    }
+
+    public static function forgetOneDanger(int $key): bool
+    {
+        return self::forgetOne('danger', $key);
+    }
+
+    public static function forgetOneWarning(int $key): bool
+    {
+        return self::forgetOne('warning', $key);
+    }
+
+    public static function forgetOneSuccess(int $key): bool
+    {
+        return self::forgetOne('success', $key);
+    }
 }
