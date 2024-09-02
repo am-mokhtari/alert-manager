@@ -13,7 +13,7 @@ class Alert extends AlertManager
      */
     public static function addNormalMessage(string $message, bool $isFlash = false): bool
     {
-        return static::add('info', $message, $isFlash);
+        return self::add('info', $message, $isFlash);
     }
 
     /**
@@ -23,7 +23,7 @@ class Alert extends AlertManager
      */
     public static function addDangerMessage(string $message, bool $isFlash = false): bool
     {
-        return static::add('danger', $message, $isFlash);
+        return self::add('danger', $message, $isFlash);
     }
 
     /**
@@ -33,7 +33,7 @@ class Alert extends AlertManager
      */
     public static function addWarningMessage(string $message, bool $isFlash = false): bool
     {
-        return static::add('warning', $message, $isFlash);
+        return self::add('warning', $message, $isFlash);
     }
 
     /**
@@ -43,7 +43,7 @@ class Alert extends AlertManager
      */
     public static function addSuccessMessage(string $message, bool $isFlash = false): bool
     {
-        return static::add('success', $message, $isFlash);
+        return self::add('success', $message, $isFlash);
     }
 
 }
