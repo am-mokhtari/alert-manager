@@ -194,17 +194,3 @@ class Alert implements AlertManagerInterface
     }
 
 }
-
-//---Test------------------------------------
-//Alert::addDangerMessage('dangered');
-//Alert::addSuccessMessage('success');
-//
-//var_dump(Alert::getByType('danger'));
-//echo '<br>';
-//var_dump(Alert::all());
-//echo '<br>';
-//var_dump(Alert::pullByType('success'));
-//echo '<br>';
-//var_dump(Alert::pullAll());
-//echo '<br>';
-//var_dump(Alert::all());
