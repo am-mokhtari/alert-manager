@@ -49,6 +49,7 @@ class Alert implements AlertManagerInterface
     }
 
     /**
+     * Store Alerts
      * @param string $type
      * @param string $message
      * @param $isFlash
@@ -72,6 +73,7 @@ class Alert implements AlertManagerInterface
     }
 
     /**
+     * To Avoid Adding a Duplicate Message
      * @param string $type
      * @param string $message
      * @param bool $flashes
@@ -93,7 +95,7 @@ class Alert implements AlertManagerInterface
     }
 
     /**
-     * @return array
+     * @inheritDoc
      */
     public static function all(): array
     {
@@ -104,8 +106,7 @@ class Alert implements AlertManagerInterface
     }
 
     /**
-     * @param string $type
-     * @return array
+     * @inheritDoc
      */
     public static function getByType(string $type): array
     {
@@ -117,8 +118,7 @@ class Alert implements AlertManagerInterface
     }
 
     /**
-     * @param string $type
-     * @return array
+     * @inheritDoc
      */
     public static function pullByType(string $type): array
     {
@@ -129,7 +129,7 @@ class Alert implements AlertManagerInterface
     }
 
     /**
-     * @return array
+     * @inheritDoc
      */
     public static function pullAll(): array
     {
@@ -140,9 +140,7 @@ class Alert implements AlertManagerInterface
     }
 
     /**
-     * @param string $type
-     * @param int $key
-     * @return bool
+     * @inheritDoc
      */
     static function forgetOne(string $type, int $key): bool
     {
@@ -151,8 +149,7 @@ class Alert implements AlertManagerInterface
     }
 
     /**
-     * @param string $type
-     * @return bool
+     * @inheritDoc
      */
     static function forgetType(string $type): bool
     {
@@ -161,13 +158,14 @@ class Alert implements AlertManagerInterface
     }
 
     /**
-     * @return bool
+     * @inheritDoc
      */
     static function forgetAll(): bool
     {
         unset($_SESSION["alert-info"], $_SESSION["alert-danger"], $_SESSION["alert-warning"], $_SESSION["alert-success"]);
         return true;
     }
+
 }
 
 //---Test------------------------------------
