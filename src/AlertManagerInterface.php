@@ -25,10 +25,23 @@ interface AlertManagerInterface
     static function pullByType(string $type): array;
 
     /**
+     * To Get All Flash Messages With Type $type And Remove them After
+     * @param string $type
+     * @return array
+     */
+    static function pullFlashesByType(string $type): array;
+
+    /**
      * To Get All Alerts And Remove All After
      * @return array
      */
     static function pullAll(): array;
+
+    /**
+     * To Get All Flash Messages And Remove All After
+     * @return array
+     */
+    static function pullAllFlashes(): array;
 
     /**
      * To Remove Alerts with $type Type
