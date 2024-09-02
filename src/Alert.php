@@ -64,10 +64,9 @@ class Alert implements AlertManagerInterface
 
         /* set session */
         if ($isFlash)
-            $session = $_SESSION["flashes"];
+            $_SESSION["flashes"][$type][] = $message;
         else
-            $session = $_SESSION["alerts"];
-        $session[$type][] = $message;
+            $_SESSION["alerts"][$type][] = $message;
 
         return true;
     }
