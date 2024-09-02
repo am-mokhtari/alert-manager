@@ -66,4 +66,23 @@ class Alert extends AlertManager
         return self::getByType('success');
     }
 
+    public static function pullNormals(): array
+    {
+        return self::pullByType('info');
+    }
+
+    public static function pullDangers(): array
+    {
+        return self::pullByType('danger');
+    }
+
+    public static function pullWarnings(): array
+    {
+        return self::pullByType('warning');
+    }
+
+    public static function pullSuccesses(): array
+    {
+        return self::pullByType('success');
+    }
 }
