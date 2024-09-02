@@ -10,40 +10,40 @@ class Alert implements AlertManagerInterface
 {
     /**
      * @param string $message
-     * @param $isFlash
+     * @param bool $isFlash
      * @return bool
      */
-    public static function addNormalMessage(string $message, $isFlash): bool
+    public static function addNormalMessage(string $message, bool $isFlash = false): bool
     {
         return self::add('info', $message, $isFlash);
     }
 
     /**
      * @param string $message
-     * @param $isFlash
+     * @param bool $isFlash
      * @return bool
      */
-    public static function addDangerMessage(string $message, $isFlash): bool
+    public static function addDangerMessage(string $message, bool $isFlash = false): bool
     {
         return self::add('danger', $message, $isFlash);
     }
 
     /**
      * @param string $message
-     * @param $isFlash
+     * @param bool $isFlash
      * @return bool
      */
-    public static function addWarningMessage(string $message, $isFlash): bool
+    public static function addWarningMessage(string $message, bool $isFlash = false): bool
     {
         return self::add('warning', $message, $isFlash);
     }
 
     /**
      * @param string $message
-     * @param $isFlash
+     * @param bool $isFlash
      * @return bool
      */
-    public static function addSuccessMessage(string $message, $isFlash): bool
+    public static function addSuccessMessage(string $message, bool $isFlash = false): bool
     {
         return self::add('success', $message, $isFlash);
     }
@@ -52,10 +52,10 @@ class Alert implements AlertManagerInterface
      * Store Alerts
      * @param string $type
      * @param string $message
-     * @param $isFlash
+     * @param bool $isFlash
      * @return bool
      */
-    private static function add(string $type, string $message, $isFlash): bool
+    private static function add(string $type, string $message, bool $isFlash): bool
     {
         /* check the message exist */
         if (!self::checkMessageExist($type, $message, $isFlash)) {
