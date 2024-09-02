@@ -46,4 +46,24 @@ class Alert extends AlertManager
         return self::add('success', $message, $isFlash);
     }
 
+    public static function getNormals(): array
+    {
+        return self::getByType('info');
+    }
+
+    public static function getDangers(): array
+    {
+        return self::getByType('danger');
+    }
+
+    public static function getWarnings(): array
+    {
+        return self::getByType('warning');
+    }
+
+    public static function getSuccesses(): array
+    {
+        return self::getByType('success');
+    }
+
 }
