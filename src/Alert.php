@@ -125,4 +125,24 @@ class Alert extends AlertManager
     {
         return self::forgetOne('success', $key);
     }
+
+    public static function forgetNormals(): bool
+    {
+        return self::forgetType('info');
+    }
+
+    public static function forgetDangers(): bool
+    {
+        return self::forgetType('danger');
+    }
+
+    public static function forgetWarnings(): bool
+    {
+        return self::forgetType('warning');
+    }
+
+    public static function forgetSuccesses(): bool
+    {
+        return self::forgetType('success');
+    }
 }
