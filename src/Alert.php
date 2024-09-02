@@ -131,6 +131,20 @@ class Alert implements AlertManagerInterface
     /**
      * @inheritDoc
      */
+    public static function pullFlashesByType(string $type): array
+    {
+        $allInType = [];
+        if (isset($_SESSION["flashes"][$type])) {
+            $allInType = $_SESSION["flashes"][$type];
+            unset($_SESSION["flashes"][$type]);
+        }
+
+        return $allInType;
+    }
+
+    /**
+     * @inheritDoc
+     */
     public static function pullAll(): array
     {
         $all = self::all();
