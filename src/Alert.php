@@ -85,4 +85,24 @@ class Alert extends AlertManager
     {
         return self::pullByType('success');
     }
+
+    public static function pullNormalFlashes(): array
+    {
+        return self::pullFlashesByType('info');
+    }
+
+    public static function pullDangerFlashes(): array
+    {
+        return self::pullFlashesByType('danger');
+    }
+
+    public static function pullWarningFlashes(): array
+    {
+        return self::pullFlashesByType('warning');
+    }
+
+    public static function pullSuccessFlashes(): array
+    {
+        return self::pullFlashesByType('success');
+    }
 }
