@@ -156,6 +156,20 @@ class Alert implements AlertManagerInterface
     /**
      * @inheritDoc
      */
+    static function pullAllFlashes(): array
+    {
+        $all = [];
+        if (isset($_SESSION["flashes"])) {
+            $all = $_SESSION["flashes"];
+            unset($_SESSION["flashes"]);
+        }
+
+        return $all;
+    }
+
+    /**
+     * @inheritDoc
+     */
     static function forgetOne(string $type, int $key): bool
     {
         unset($_SESSION["alerts"][$type][$key]);
