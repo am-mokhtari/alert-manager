@@ -4,7 +4,7 @@ namespace AmMokhtari\AlertManager;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-class Alert extends AlertManager
+class Alert extends BaseClass
 {
     private function __construct()
     {
