@@ -8,7 +8,7 @@ You can set ***Flash Messages*** and retrieve them along with automatic deletion
 
 **Initially, you need to have the *[composer](https://composer.org)* installed.**
 
-To install the package, follow the command:
+To install this package, follow the command:
 
 ```
 composer require am-mokhtari/alert-manager
@@ -24,7 +24,10 @@ composer require am-mokhtari/alert-manager
 - Alert::addDanger(string $message, bool $isFlash)
 
 This kind of functions is applicable to both regular `alerts` and `flash messages`.
-This is to **add** a message to the group of alerts. If your message is considered as a flash message, you can assign a `true` value to `$isflash`.
+
+This is to **add** a message to the group of alerts.
+
+**If your message is considered as a flash message, you can assign a `true` value to `$isflash`.**
 
 ### Regular *alerts* functions
 
@@ -50,6 +53,7 @@ This function retrieves all messages as a **multidimensional array**.
 - Alert::pullSuccess()
 
 These functions retrieve messages as the mentioned type and remove them automatically.
+
 The output would be of type **array**.
 
 ----
@@ -57,6 +61,7 @@ The output would be of type **array**.
 - Alert::pullAll()
 
 This function retrieves all messages and removes them automatically.
+
 The output would be **multidimensional array**.
 
 ----
@@ -67,6 +72,7 @@ The output would be **multidimensional array**.
 - Alert::forgetSuccessOne(int $key)
 
 These functions remove the mentioned type message belonging to the `$key`.
+
 The output would be **true**.
 
 ----
@@ -77,6 +83,7 @@ The output would be **true**.
 - Alert::forgetDanger()
 
 These functions remove the mentioned type messages.
+
 The output would be **true**.
 
 ----
@@ -84,6 +91,7 @@ The output would be **true**.
 - Alert::forgetAll()
 
 This function removes all messages.
+
 The output would be **true**.
 
 ### The following functions are used for *flash messages*:
@@ -94,6 +102,7 @@ The output would be **true**.
 - Alert::pullDangerFlashes()
 
 These functions retrieve Flash Messages as the mentioned type and delete them automatically.
+
 The output would be of type **array**.
 
 ----
@@ -101,6 +110,7 @@ The output would be of type **array**.
 - Alert::pullAllFlashes()
 
 This function retrieves all Flash Messages and removes them automatically.
+
 The output would be **multidimensional array**.
 
 # Contributing 🤝
