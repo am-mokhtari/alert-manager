@@ -46,6 +46,8 @@ class Alert extends AlertManager
         return self::add('success', $message, $isFlash);
     }
 
+    /*---------------------------------------------------*/
+
     public static function getNormals(): array
     {
         return self::getByType('info');
@@ -65,6 +67,8 @@ class Alert extends AlertManager
     {
         return self::getByType('success');
     }
+
+    /*---------------------------------------------------*/
 
     public static function pullNormals(): array
     {
@@ -86,6 +90,8 @@ class Alert extends AlertManager
         return self::pullByType('success');
     }
 
+    /*---------------------------------------------------*/
+
     public static function pullNormalFlashes(): array
     {
         return self::pullFlashesByType('info');
@@ -106,6 +112,8 @@ class Alert extends AlertManager
         return self::pullFlashesByType('success');
     }
 
+    /*---------------------------------------------------*/
+
     public static function forgetOneNormal(int $key): bool
     {
         return self::forgetOne('info', $key);
@@ -125,6 +133,8 @@ class Alert extends AlertManager
     {
         return self::forgetOne('success', $key);
     }
+
+    /*---------------------------------------------------*/
 
     public static function forgetNormals(): bool
     {
