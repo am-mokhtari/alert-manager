@@ -6,6 +6,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 class Alert extends AlertManager
 {
+    private function __construct()
+    {
+    }
+
+    /*---------------------------------------------------*/
+
     public static function all(): array
     {
         return parent::all();

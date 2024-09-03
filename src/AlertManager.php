@@ -7,6 +7,12 @@ session_start();
 
 abstract class AlertManager
 {
+    private function __construct()
+    {
+    }
+
+    /*-----------------------------*/
+
     /**
      * Store Alerts
      * @param string $type
