@@ -6,6 +6,28 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 class Alert extends AlertManager
 {
+    public static function all(): array
+    {
+        return parent::all();
+    }
+
+    public static function pullAll(): array
+    {
+        return parent::pullAll();
+    }
+
+    public static function pullAllFlashes(): array
+    {
+        return parent::pullAllFlashes();
+    }
+
+    public static function forgetAll(): bool
+    {
+        return parent::forgetAll();
+    }
+
+    /*---------------------------------------------------*/
+
     /**
      * @param string $message
      * @param bool $isFlash

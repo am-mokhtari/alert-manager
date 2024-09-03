@@ -56,7 +56,7 @@ abstract class AlertManager
      * To Get All Alerts Without Removing
      * @return array
      */
-    public static function all(): array
+    protected static function all(): array
     {
         $all = [];
         if (isset($_SESSION["alerts"]))
@@ -111,7 +111,7 @@ abstract class AlertManager
      * To Get All Alerts And Remove All After
      * @return array
      */
-    public static function pullAll(): array
+    protected static function pullAll(): array
     {
         $all = self::all();
         self::forgetAll();
@@ -123,7 +123,7 @@ abstract class AlertManager
      * To Get All Flash Messages And Remove All After
      * @return array
      */
-    public static function pullAllFlashes(): array
+    protected static function pullAllFlashes(): array
     {
         $all = [];
         if (isset($_SESSION["flashes"])) {
@@ -161,7 +161,7 @@ abstract class AlertManager
      * To Remove All Alerts
      * @return bool
      */
-    public static function forgetAll(): bool
+    protected static function forgetAll(): bool
     {
         unset($_SESSION["alerts"]);
         return true;
