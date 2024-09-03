@@ -2,7 +2,7 @@
 
 This package helps you to categorize messages into four types as follows: `danger`, `warning`, `success` and `normal`.
 
-You may set ***Flash Messages*** to receive them via `pull{Type}Flashes` and `pullAllFlashes` And delete them automatically.
+You can set ***Flash Messages*** and retrieve them along with automatic deletion.
 
 # How to install 😃
 
