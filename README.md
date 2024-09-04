@@ -1,3 +1,5 @@
+![icon](https://i.imgur.com/hoTCW6N.jpeg)
+
 # What's the purpose of this package? 🤔
 
 This package helps you to categorize messages into four types as follows: `danger`, `warning`, `success` and `normal`.
