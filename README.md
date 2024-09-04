@@ -1,4 +1,4 @@
-![icon](https://i.imgur.com/hoTCW6N.jpeg)
+![icon](https://i.imgur.com/hoTCW6N.jpg)
 
 # What's the purpose of this package? 🤔
 
